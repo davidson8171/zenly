@@ -1,0 +1,47 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build-Ausgaben
+dist/
+build/
+out/
+.vite/
+.vinxi/
+*.tsbuildinfo
+
+# Umgebungskonfigurationen
+.env
+.env.*
+!.env.example
+
+# Editor-spezifisch
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Systemdateien
+.DS_Store
+Thumbs.db
+
+# Sonstiges
+coverage/
+*.local
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Paket-Manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Sonstige temporäre Dateien
+*.swp
+*.tmp
+*.temp
