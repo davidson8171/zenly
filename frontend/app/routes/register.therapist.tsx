@@ -1,5 +1,3 @@
-"use client";
-
 import Navbar from "@/components/navbar/navbar";
 import AgeCard from "@/components/registerCards/ageCard";
 import GenderCard from "@/components/registerCards/genderCard";
@@ -15,11 +13,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export const Route = createFileRoute("/register/patient")({
-  component: RegisterPatient,
+export const Route = createFileRoute("/register/therapist")({
+  component: RegisterTherapist,
 });
 
-function RegisterPatient() {
+function RegisterTherapist() {
   const [api, setApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -56,7 +54,7 @@ function RegisterPatient() {
           >
             <CarouselContent className="px-1">
               <CarouselItem>
-                <NameCard pageNumber={1} />
+                <NameCard pageNumber={1} showTitle />
               </CarouselItem>
               <CarouselItem>
                 <GenderCard pageNumber={2} />

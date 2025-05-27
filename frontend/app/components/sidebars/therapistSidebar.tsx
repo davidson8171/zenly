@@ -4,21 +4,13 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import {
-  ChevronsUpDown,
-  House,
-  LifeBuoy,
-  List,
-  LogOut,
-  User,
-} from "lucide-react";
+import { ChevronsUpDown, LifeBuoy, List, LogOut, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
   DropdownMenu,
@@ -27,8 +19,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { useLocation, useRouter } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useLocation } from "@tanstack/react-router";
+import Logo from "../logo/logo";
 
 const data = {
   navMain: [
@@ -58,18 +50,14 @@ export default function TherapistSidebar() {
 
   return (
     <Sidebar className="max-w-60 px-2">
-      <SidebarHeader className="bg-white">
+      <SidebarHeader className="bg-white px-1">
         <SidebarMenu>
           <SidebarMenuItem>
-            <div className="flex items-center space-x-3 !p-1.5">
-              <a href="/">
-                <div className="bg-gradient-to-br from-teal-400 to-green-400 px-4 py-1.5 rounded-sm">
-                  <h2 className="text-sm text-white font-GeistLight tracking-widest">
-                    Zenly
-                  </h2>
-                </div>
-              </a>
-              <span className="text-sm">Dashboard</span>
+            <div className="flex items-center !px-2 !py-1.5">
+              <Logo />
+              <div className="flex w-full h-full justify-center items-center">
+                <span className="text-base">Dashboard</span>
+              </div>
             </div>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -89,11 +77,11 @@ export default function TherapistSidebar() {
                     <a href={item.to}>
                       {item.icon && (
                         <item.icon
-                          className={`!h-4 !w-4 ${item.to === location.pathname ? "text-teal-400" : "text-muted-foreground"}`}
+                          className={`!h-4 !w-4 ${item.to === location.pathname ? "text-emerald-400" : "text-muted-foreground"}`}
                         />
                       )}
                       <span
-                        className={`${item.to === location.pathname ? "bg-gradient-to-br from-teal-400 to-green-400 text-transparent bg-clip-text" : "text-muted-foreground"}`}
+                        className={`text-base ${item.to === location.pathname ? "" : "text-muted-foreground"}`}
                       >
                         {item.name}
                       </span>
@@ -118,11 +106,11 @@ export default function TherapistSidebar() {
                     <a href={item.to}>
                       {item.icon && (
                         <item.icon
-                          className={`!h-4 !w-4 ${item.to === location.pathname ? "text-teal-400" : "text-muted-foreground"}`}
+                          className={`!h-4 !w-4 ${item.to === location.pathname ? "text-emerald-400" : "text-muted-foreground"}`}
                         />
                       )}
                       <span
-                        className={`${item.to === location.pathname ? "bg-gradient-to-br from-teal-400 to-green-400 text-transparent bg-clip-text" : "text-muted-foreground"}`}
+                        className={`text-base ${item.to === location.pathname ? "" : "text-muted-foreground"}`}
                       >
                         {item.name}
                       </span>
@@ -146,8 +134,8 @@ export default function TherapistSidebar() {
                   <Avatar className="h-8 w-8 rounded-md">
                     <AvatarImage src="https://img.freepik.com/fotos-kostenlos/mid-shot-frau-therapeutin-mit-zwischenablage_23-2148759113.jpg?semt=ais_hybrid&w=740" />
                     <AvatarFallback className="rounded-lg">
-                      <div className="bg-gradient-to-br from-teal-400 to-green-400 p-2 rounded-md">
-                        <User className="h-5 w-5 text-muted" />
+                      <div className="bg-secondary">
+                        <User className="!h-4.5 !w-4.5 text-emerald-400" />
                       </div>
                     </AvatarFallback>
                   </Avatar>
@@ -161,17 +149,15 @@ export default function TherapistSidebar() {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className="rounded-lg !shadow-none"
+                className="rounded-lg !shadow-none bg-red-500 p-0 !border-none hover:bg-red-400"
                 side={isMobile ? "bottom" : "right"}
                 align="end"
                 sideOffset={6}
               >
                 <DropdownMenuGroup>
-                  <DropdownMenuItem className="focus:bg-white group">
-                    <LogOut className="text-red-500 group-focus:text-red-600" />
-                    <span className="text-red-500 group-focus:text-red-600">
-                      Abmelden
-                    </span>
+                  <DropdownMenuItem className="focus:bg-transparent group px-3 py-2.5">
+                    <LogOut className="!h-3.5 !w-3.5 text-white" />
+                    <span className="text-white">Abmelden</span>
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>

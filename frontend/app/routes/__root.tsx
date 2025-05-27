@@ -5,9 +5,35 @@ import {
   createRootRoute,
   HeadContent,
   Scripts,
+  useMatches,
 } from "@tanstack/react-router";
 
 import appCss from "@/styles/app.css?url";
+
+function DynamicHead() {
+  const matches = useMatches();
+  const pathname = matches[matches.length - 1]?.pathname;
+
+  let title = "Zenly";
+  switch (true) {
+    case pathname?.startsWith("/register"):
+      title = "Registrieren";
+      break;
+    case pathname?.startsWith("/dashboard"):
+      title = "Dashboard";
+      break;
+  }
+
+  return (
+    <>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>{title}</title>
+      <link rel="stylesheet" href={appCss} suppressHydrationWarning />
+      <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    </>
+  );
+}
 
 export const Route = createRootRoute({
   head: () => ({
@@ -19,15 +45,17 @@ export const Route = createRootRoute({
         name: "viewport",
         content: "width=device-width, initial-scale=1",
       },
-      {
-        title: "",
-      },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
         suppressHydrationWarning: true,
+      },
+      {
+        rel: "icon",
+        href: "/logo.svg",
+        type: "image/svg+xml",
       },
     ],
   }),
@@ -47,6 +75,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
     <html>
       <head>
         <HeadContent />
+        <DynamicHead />
       </head>
       <body>
         {children}

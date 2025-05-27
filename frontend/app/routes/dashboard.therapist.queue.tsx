@@ -14,7 +14,7 @@ export const Route = createFileRoute("/dashboard/therapist/queue")({
 
 function DashboardTherapistQueue() {
   return (
-    <div className="w-full flex flex-col gap-14 mt-4 px-4">
+    <div className="w-full flex flex-col gap-4 mt-4.5 px-4">
       <div className="flex items-center gap-3">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mr-2 !h-4" />

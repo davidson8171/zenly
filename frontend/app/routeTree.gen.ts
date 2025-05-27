@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as RegisterTherapistImport } from './routes/register.therapist'
 import { Route as RegisterPatientImport } from './routes/register.patient'
 import { Route as DashboardTherapistImport } from './routes/dashboard.therapist'
 import { Route as DashboardTherapistQueueImport } from './routes/dashboard.therapist.queue'
@@ -21,6 +22,12 @@ import { Route as DashboardTherapistQueueImport } from './routes/dashboard.thera
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const RegisterTherapistRoute = RegisterTherapistImport.update({
+  id: '/register/therapist',
+  path: '/register/therapist',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,6 +74,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterPatientImport
       parentRoute: typeof rootRoute
     }
+    '/register/therapist': {
+      id: '/register/therapist'
+      path: '/register/therapist'
+      fullPath: '/register/therapist'
+      preLoaderRoute: typeof RegisterTherapistImport
+      parentRoute: typeof rootRoute
+    }
     '/dashboard/therapist/queue': {
       id: '/dashboard/therapist/queue'
       path: '/queue'
@@ -94,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
+  '/register/therapist': typeof RegisterTherapistRoute
   '/dashboard/therapist/queue': typeof DashboardTherapistQueueRoute
 }
 
@@ -101,6 +116,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
+  '/register/therapist': typeof RegisterTherapistRoute
   '/dashboard/therapist/queue': typeof DashboardTherapistQueueRoute
 }
 
@@ -109,6 +125,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
+  '/register/therapist': typeof RegisterTherapistRoute
   '/dashboard/therapist/queue': typeof DashboardTherapistQueueRoute
 }
 
@@ -118,18 +135,21 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard/therapist'
     | '/register/patient'
+    | '/register/therapist'
     | '/dashboard/therapist/queue'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/dashboard/therapist'
     | '/register/patient'
+    | '/register/therapist'
     | '/dashboard/therapist/queue'
   id:
     | '__root__'
     | '/'
     | '/dashboard/therapist'
     | '/register/patient'
+    | '/register/therapist'
     | '/dashboard/therapist/queue'
   fileRoutesById: FileRoutesById
 }
@@ -138,12 +158,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardTherapistRoute: typeof DashboardTherapistRouteWithChildren
   RegisterPatientRoute: typeof RegisterPatientRoute
+  RegisterTherapistRoute: typeof RegisterTherapistRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardTherapistRoute: DashboardTherapistRouteWithChildren,
   RegisterPatientRoute: RegisterPatientRoute,
+  RegisterTherapistRoute: RegisterTherapistRoute,
 }
 
 export const routeTree = rootRoute
@@ -158,7 +180,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/dashboard/therapist",
-        "/register/patient"
+        "/register/patient",
+        "/register/therapist"
       ]
     },
     "/": {
@@ -172,6 +195,9 @@ export const routeTree = rootRoute
     },
     "/register/patient": {
       "filePath": "register.patient.tsx"
+    },
+    "/register/therapist": {
+      "filePath": "register.therapist.tsx"
     },
     "/dashboard/therapist/queue": {
       "filePath": "dashboard.therapist.queue.tsx",

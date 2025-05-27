@@ -1,5 +1,4 @@
-"use client";
-
+import Navbar from "@/components/navbar/navbar";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -7,5 +6,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  return <div>hallo</div>;
+  return (
+    <div className="h-screen w-full flex flex-col">
+      <Navbar />
+    </div>
+  );
 }

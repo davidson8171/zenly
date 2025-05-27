@@ -12,8 +12,8 @@
 }
 
 @font-face {
-  font-family: "GeistLight";
-  src: url("/fonts/Geist-Light.ttf") format("truetype");
+  font-family: "GeistMono-Regular";
+  src: url("/fonts/GeistMono-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -131,9 +131,9 @@ body {
   font-family: var(--font-sans);
 }
 
-.font-GeistLight {
+.font-GeistMono-Regular {
   font-family:
-    "GeistLight",
+    "GeistMono-Regular",
     system-ui,
     -apple-system,
     sans-serif;
@@ -146,6 +146,12 @@ body {
     -webkit-appearance: none;
     margin: 0;
     -moz-appearance: textfield !important;
+  }
+
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
   }
 
   :root {
