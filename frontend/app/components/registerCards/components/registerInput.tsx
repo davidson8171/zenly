@@ -34,7 +34,7 @@ export default function RegisterInput({
 
   return (
     <div className="flex flex-col">
-      <Label className="text-md font-RobotoLight leading-none">{label}</Label>
+      <Label className="text-md leading-none">{label}</Label>
       {optional && <p className="text-sm text-muted-foreground/50">optional</p>}
       <Input
         className="border-none px-0 mt-2 !placeholder-gray-500/25 !text-xl peer"

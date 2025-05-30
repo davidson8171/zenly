@@ -11,6 +11,8 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ResetPasswordImport } from './routes/reset-password'
+import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
 import { Route as RegisterTherapistImport } from './routes/register.therapist'
 import { Route as RegisterPatientImport } from './routes/register.patient'
@@ -18,6 +20,18 @@ import { Route as DashboardTherapistImport } from './routes/dashboard.therapist'
 import { Route as DashboardTherapistQueueImport } from './routes/dashboard.therapist.queue'
 
 // Create/Update Routes
+
+const ResetPasswordRoute = ResetPasswordImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LoginRoute = LoginImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -58,6 +72,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordImport
       parentRoute: typeof rootRoute
     }
     '/dashboard/therapist': {
@@ -106,6 +134,8 @@ const DashboardTherapistRouteWithChildren =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
   '/register/therapist': typeof RegisterTherapistRoute
@@ -114,6 +144,8 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
   '/register/therapist': typeof RegisterTherapistRoute
@@ -123,6 +155,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
   '/register/therapist': typeof RegisterTherapistRoute
@@ -133,6 +167,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/login'
+    | '/reset-password'
     | '/dashboard/therapist'
     | '/register/patient'
     | '/register/therapist'
@@ -140,6 +176,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/login'
+    | '/reset-password'
     | '/dashboard/therapist'
     | '/register/patient'
     | '/register/therapist'
@@ -147,6 +185,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/login'
+    | '/reset-password'
     | '/dashboard/therapist'
     | '/register/patient'
     | '/register/therapist'
@@ -156,6 +196,8 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   DashboardTherapistRoute: typeof DashboardTherapistRouteWithChildren
   RegisterPatientRoute: typeof RegisterPatientRoute
   RegisterTherapistRoute: typeof RegisterTherapistRoute
@@ -163,6 +205,8 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   DashboardTherapistRoute: DashboardTherapistRouteWithChildren,
   RegisterPatientRoute: RegisterPatientRoute,
   RegisterTherapistRoute: RegisterTherapistRoute,
@@ -179,6 +223,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/login",
+        "/reset-password",
         "/dashboard/therapist",
         "/register/patient",
         "/register/therapist"
@@ -186,6 +232,12 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/login": {
+      "filePath": "login.tsx"
+    },
+    "/reset-password": {
+      "filePath": "reset-password.tsx"
     },
     "/dashboard/therapist": {
       "filePath": "dashboard.therapist.tsx",

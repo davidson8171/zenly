@@ -52,10 +52,12 @@ export default function Navbar() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          <Button variant="secondary">
-            <LogIn className="!w-4 !h-4 sm:!w-3.5 sm:!h-3.5 !text-emerald-400" />
-            <span className="hidden sm:flex">Anmelden</span>
-          </Button>
+          <a href="/login">
+            <Button variant="secondary">
+              <LogIn className="!w-4 !h-4 sm:!w-3.5 sm:!h-3.5 !text-emerald-400" />
+              <span className="hidden sm:flex">Anmelden</span>
+            </Button>
+          </a>
         </div>
       </div>
     </div>
