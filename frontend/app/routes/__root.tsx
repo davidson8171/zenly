@@ -14,13 +14,19 @@ function DynamicHead() {
   const matches = useMatches();
   const pathname = matches[matches.length - 1]?.pathname;
 
-  let title = "Zenly";
+  let title = "Zenq";
   switch (true) {
     case pathname?.startsWith("/register"):
       title = "Registrieren";
       break;
     case pathname?.startsWith("/dashboard"):
       title = "Dashboard";
+      break;
+    case pathname?.startsWith("/reset-password"):
+      title = "Passwort zurücksetzen";
+      break;
+    case pathname?.startsWith("/login"):
+      title = "Anmelden";
       break;
   }
 

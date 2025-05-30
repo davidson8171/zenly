@@ -5,7 +5,7 @@ export default function Logo({ size = "sm" }: { size?: "sm" | "base" }) {
         <h2
           className={`text-${size === "sm" ? "sm" : "base"} text-white font-GeistMono-Regular tracking-widest`}
         >
-          Zenly
+          Zenq
         </h2>
       </div>
     </a>
