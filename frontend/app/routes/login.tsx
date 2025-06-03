@@ -9,9 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import InputWithLabel from "@/components/ui/inputWithLabel";
 import { Label } from "@/components/ui/label";
 import { createFileRoute } from "@tanstack/react-router";
-import { Eye, EyeClosed, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 export const Route = createFileRoute("/login")({
   component: Login,
@@ -27,26 +28,22 @@ function Login() {
         <div className="h-1/6" />
         <Card className="w-full max-w-96 sm:w-96 border-none">
           <CardHeader>
-            <CardTitle>Anmelden</CardTitle>
+            <CardTitle className="text-lg">Anmelden</CardTitle>
             <CardDescription>
               Melde dich an, um deine Warteliste zu verwalten.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-8 mt-4">
-            <div className="flex flex-col">
-              <Label className="text-md leading-none">Email</Label>
-              <Input
-                className="border-none px-0 mt-1 !placeholder-gray-500/25 !text-base peer"
-                type="email"
-                placeholder="name@example.com"
-              />
-              <div className="h-0.5 w-full rounded-4xl bg-gray-500/25 peer-focus:bg-gradient-to-br from-teal-400 to-green-400 transition-all duration-300" />
-            </div>
+            <InputWithLabel
+              label="Email"
+              placeholder="name@example.com"
+              type="email"
+            />
             <div className="flex flex-col">
               <div className="flex items-end justify-between">
                 <Label className="text-md leading-none">Passwort</Label>
                 <a href="/reset-password">
-                  <p className="text-sm text-muted-foreground/50 cursor-pointer hover:underline">
+                  <p className="text-sm text-muted-foreground/50 cursor-pointer hover:underline underline-offset-1">
                     Passwort vergessen?
                   </p>
                 </a>

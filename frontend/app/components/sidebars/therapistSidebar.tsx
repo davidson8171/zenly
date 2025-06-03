@@ -55,14 +55,11 @@ export default function TherapistSidebar() {
           <SidebarMenuItem>
             <div className="flex items-center !px-2 !py-1.5">
               <Logo />
-              <div className="flex w-full h-full justify-center items-center">
-                <span className="text-base">Dashboard</span>
-              </div>
             </div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent className="bg-white pt-8 px-1">
+      <SidebarContent className="bg-white pt-4 px-1">
         <SidebarGroup>
           <SidebarGroupContent className="flex flex-col gap-2">
             <SidebarMenu className="gap-2">

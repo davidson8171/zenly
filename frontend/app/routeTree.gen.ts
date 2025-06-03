@@ -18,6 +18,7 @@ import { Route as RegisterTherapistImport } from './routes/register.therapist'
 import { Route as RegisterPatientImport } from './routes/register.patient'
 import { Route as DashboardTherapistImport } from './routes/dashboard.therapist'
 import { Route as DashboardTherapistQueueImport } from './routes/dashboard.therapist.queue'
+import { Route as DashboardTherapistHelpImport } from './routes/dashboard.therapist.help'
 
 // Create/Update Routes
 
@@ -60,6 +61,12 @@ const DashboardTherapistRoute = DashboardTherapistImport.update({
 const DashboardTherapistQueueRoute = DashboardTherapistQueueImport.update({
   id: '/queue',
   path: '/queue',
+  getParentRoute: () => DashboardTherapistRoute,
+} as any)
+
+const DashboardTherapistHelpRoute = DashboardTherapistHelpImport.update({
+  id: '/help',
+  path: '/help',
   getParentRoute: () => DashboardTherapistRoute,
 } as any)
 
@@ -109,6 +116,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterTherapistImport
       parentRoute: typeof rootRoute
     }
+    '/dashboard/therapist/help': {
+      id: '/dashboard/therapist/help'
+      path: '/help'
+      fullPath: '/dashboard/therapist/help'
+      preLoaderRoute: typeof DashboardTherapistHelpImport
+      parentRoute: typeof DashboardTherapistImport
+    }
     '/dashboard/therapist/queue': {
       id: '/dashboard/therapist/queue'
       path: '/queue'
@@ -122,10 +136,12 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface DashboardTherapistRouteChildren {
+  DashboardTherapistHelpRoute: typeof DashboardTherapistHelpRoute
   DashboardTherapistQueueRoute: typeof DashboardTherapistQueueRoute
 }
 
 const DashboardTherapistRouteChildren: DashboardTherapistRouteChildren = {
+  DashboardTherapistHelpRoute: DashboardTherapistHelpRoute,
   DashboardTherapistQueueRoute: DashboardTherapistQueueRoute,
 }
 
@@ -139,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
   '/register/therapist': typeof RegisterTherapistRoute
+  '/dashboard/therapist/help': typeof DashboardTherapistHelpRoute
   '/dashboard/therapist/queue': typeof DashboardTherapistQueueRoute
 }
 
@@ -149,6 +166,7 @@ export interface FileRoutesByTo {
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
   '/register/therapist': typeof RegisterTherapistRoute
+  '/dashboard/therapist/help': typeof DashboardTherapistHelpRoute
   '/dashboard/therapist/queue': typeof DashboardTherapistQueueRoute
 }
 
@@ -160,6 +178,7 @@ export interface FileRoutesById {
   '/dashboard/therapist': typeof DashboardTherapistRouteWithChildren
   '/register/patient': typeof RegisterPatientRoute
   '/register/therapist': typeof RegisterTherapistRoute
+  '/dashboard/therapist/help': typeof DashboardTherapistHelpRoute
   '/dashboard/therapist/queue': typeof DashboardTherapistQueueRoute
 }
 
@@ -172,6 +191,7 @@ export interface FileRouteTypes {
     | '/dashboard/therapist'
     | '/register/patient'
     | '/register/therapist'
+    | '/dashboard/therapist/help'
     | '/dashboard/therapist/queue'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -181,6 +201,7 @@ export interface FileRouteTypes {
     | '/dashboard/therapist'
     | '/register/patient'
     | '/register/therapist'
+    | '/dashboard/therapist/help'
     | '/dashboard/therapist/queue'
   id:
     | '__root__'
@@ -190,6 +211,7 @@ export interface FileRouteTypes {
     | '/dashboard/therapist'
     | '/register/patient'
     | '/register/therapist'
+    | '/dashboard/therapist/help'
     | '/dashboard/therapist/queue'
   fileRoutesById: FileRoutesById
 }
@@ -242,6 +264,7 @@ export const routeTree = rootRoute
     "/dashboard/therapist": {
       "filePath": "dashboard.therapist.tsx",
       "children": [
+        "/dashboard/therapist/help",
         "/dashboard/therapist/queue"
       ]
     },
@@ -250,6 +273,10 @@ export const routeTree = rootRoute
     },
     "/register/therapist": {
       "filePath": "register.therapist.tsx"
+    },
+    "/dashboard/therapist/help": {
+      "filePath": "dashboard.therapist.help.tsx",
+      "parent": "/dashboard/therapist"
     },
     "/dashboard/therapist/queue": {
       "filePath": "dashboard.therapist.queue.tsx",

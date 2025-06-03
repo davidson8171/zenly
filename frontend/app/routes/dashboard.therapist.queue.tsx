@@ -4,33 +4,26 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { createFileRoute } from "@tanstack/react-router";
+import { ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard/therapist/queue")({
   component: DashboardTherapistQueue,
 });
 
 function DashboardTherapistQueue() {
+  const { isMobile } = useSidebar();
   return (
     <div className="w-full flex flex-col gap-4 mt-4.5 px-4">
-      <div className="flex items-center gap-3">
-        <SidebarTrigger className="-ml-1" />
-        <Separator orientation="vertical" className="mr-2 !h-4" />
-        <span className="text-sm font-medium">Warteliste</span>
-      </div>
-      <div className="w-full flex justify-center">
-        <Card className="w-full max-w-4xl bg-muted/50 border-none">
-          <CardHeader>
-            <CardTitle>Nächste Person in der Warteliste</CardTitle>
-            <CardDescription>
-              Hier kannst du die nächste Person in der Warteliste annehmen oder
-              ablehnen.
-            </CardDescription>
-          </CardHeader>
-        </Card>
-      </div>
+      {isMobile && (
+        <div className="flex items-center">
+          <SidebarTrigger className="mr-2" />
+          <ChevronRight className="mr-1 !h-4 !w-4 text-muted-foreground/50" />
+          <span className="text-sm font-medium">Warteliste</span>
+        </div>
+      )}
+      <div className="w-full flex justify-center"></div>
     </div>
   );
 }

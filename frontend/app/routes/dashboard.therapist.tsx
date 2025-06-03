@@ -4,7 +4,7 @@ import {
   createFileRoute,
   Navigate,
   Outlet,
-  redirect,
+  useLocation,
 } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/dashboard/therapist")({
@@ -13,12 +13,16 @@ export const Route = createFileRoute("/dashboard/therapist")({
 });
 
 function DashboardTherapist() {
+  const location = useLocation();
+
   return (
     <SidebarProvider>
       <TherapistSidebar />
       <SidebarInset>
         <Outlet />
-        <Navigate to="/dashboard/therapist/queue" />
+        {location.pathname === "/dashboard/therapist" && (
+          <Navigate to="/dashboard/therapist/queue" />
+        )}
       </SidebarInset>
     </SidebarProvider>
   );
