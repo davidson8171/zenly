@@ -1,16 +1,16 @@
 import { MoveRight } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import RegisterButton from "./components/registerButton";
+import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
 import { useState } from "react";
+import RegisterButton from "../components/registerButton";
 
-export default function GenderCard({ pageNumber }: { pageNumber: number }) {
-  const [selectedGender, setSelectedGender] = useState<string | null>(null);
+export default function WhatHelpCard({ pageNumber }: { pageNumber: number }) {
+  const [selectedDuration, setSelectedDuration] = useState<string | null>(null);
 
   return (
     <Card className="w-xl max-w-screen border-none pl-8 pr-4">
       <CardHeader className="relative">
         <CardTitle className="font-medium text-xl sm:text-2xl">
-          Wie lautet dein Geschlecht?
+          Wie lange hast du bereits Beschwerden?
         </CardTitle>
         <div className="absolute left-0 top-0 translate-y-1 sm:translate-y-1.5 -translate-x-4 flex items-center space-x-1">
           <p className="text-sm text-emerald-400">{pageNumber}</p>
@@ -19,24 +19,24 @@ export default function GenderCard({ pageNumber }: { pageNumber: number }) {
       </CardHeader>
       <CardContent className="grid gap-2 w-fit">
         <RegisterButton
-          label="männlich"
-          selected={selectedGender}
-          setSelected={setSelectedGender}
+          label="< 1 Monat"
+          selected={selectedDuration}
+          setSelected={setSelectedDuration}
         />
         <RegisterButton
-          label="weiblich"
-          selected={selectedGender}
-          setSelected={setSelectedGender}
+          label="1-6 Monate"
+          selected={selectedDuration}
+          setSelected={setSelectedDuration}
         />
         <RegisterButton
-          label="divers"
-          selected={selectedGender}
-          setSelected={setSelectedGender}
+          label="6-12 Monate"
+          selected={selectedDuration}
+          setSelected={setSelectedDuration}
         />
         <RegisterButton
-          label="keine Angabe"
-          selected={selectedGender}
-          setSelected={setSelectedGender}
+          label="> 1 Jahr"
+          selected={selectedDuration}
+          setSelected={setSelectedDuration}
         />
       </CardContent>
     </Card>

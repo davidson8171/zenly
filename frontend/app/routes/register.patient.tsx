@@ -1,9 +1,12 @@
 "use client";
 
 import Navbar from "@/components/navbar/navbar";
-import AgeCard from "@/components/registerCards/ageCard";
-import GenderCard from "@/components/registerCards/genderCard";
-import NameCard from "@/components/registerCards/nameCard";
+import AgeCard from "@/components/registerCards/patient/ageCard";
+import GenderCard from "@/components/registerCards/patient/genderCard";
+import NameCard from "@/components/registerCards/patient/nameCard";
+import DurationCard from "@/components/registerCards/patient/durationCard";
+import WhatHelpCard from "@/components/registerCards/patient/whatHelpCard";
+import VideoCard from "@/components/registerCards/patient/videoCard";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -14,6 +17,18 @@ import {
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import LanguageCard from "@/components/registerCards/patient/languageCard";
+import FormerTherapyCard from "@/components/registerCards/patient/formerTherapyCard";
+import MedicationCard from "@/components/registerCards/patient/medicationCard";
+import DiagnoseCard from "@/components/registerCards/patient/diagnoseCard";
+import SuicideCard from "@/components/registerCards/patient/suicideCard";
+import InsuranceTypeCard from "@/components/registerCards/patient/insuranceTypeCard";
+import InsuranceNumberCard from "@/components/registerCards/patient/insuranceNumberCard";
+import TransferCard from "@/components/registerCards/patient/transferCard";
+import CostCard from "@/components/registerCards/patient/costCard";
+import PhoneCard from "@/components/registerCards/patient/phoneCard";
+import EmailCard from "@/components/registerCards/patient/emailCard";
+import PasswordCard from "@/components/registerCards/patient/passwordCard";
 
 export const Route = createFileRoute("/register/patient")({
   component: RegisterPatient,
@@ -63,6 +78,51 @@ function RegisterPatient() {
               </CarouselItem>
               <CarouselItem>
                 <AgeCard pageNumber={3} />
+              </CarouselItem>
+              <CarouselItem>
+                <WhatHelpCard pageNumber={4} />
+              </CarouselItem>
+              <CarouselItem>
+                <DurationCard pageNumber={5} />
+              </CarouselItem>
+              <CarouselItem>
+                <VideoCard pageNumber={6} />
+              </CarouselItem>
+              <CarouselItem>
+                <LanguageCard pageNumber={7} />
+              </CarouselItem>
+              <CarouselItem>
+                <FormerTherapyCard pageNumber={8} />
+              </CarouselItem>
+              <CarouselItem>
+                <MedicationCard pageNumber={9} />
+              </CarouselItem>
+              <CarouselItem>
+                <DiagnoseCard pageNumber={10} />
+              </CarouselItem>
+              <CarouselItem>
+                <SuicideCard pageNumber={11} />
+              </CarouselItem>
+              <CarouselItem>
+                <InsuranceTypeCard pageNumber={12} />
+              </CarouselItem>
+              <CarouselItem>
+                <InsuranceNumberCard pageNumber={13} />
+              </CarouselItem>
+              <CarouselItem>
+                <TransferCard pageNumber={14} />
+              </CarouselItem>
+              <CarouselItem>
+                <CostCard pageNumber={15} />
+              </CarouselItem>
+              <CarouselItem>
+                <PhoneCard pageNumber={16} />
+              </CarouselItem>
+              <CarouselItem>
+                <EmailCard pageNumber={17} />
+              </CarouselItem>
+              <CarouselItem>
+                <PasswordCard pageNumber={18} />
               </CarouselItem>
             </CarouselContent>
           </Carousel>

@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar/navbar";
-import AgeCard from "@/components/registerCards/ageCard";
-import GenderCard from "@/components/registerCards/genderCard";
-import NameCard from "@/components/registerCards/nameCard";
+import AgeCard from "@/components/registerCards/patient/ageCard";
+import GenderCard from "@/components/registerCards/patient/genderCard";
+import NameCard from "@/components/registerCards/patient/nameCard";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,

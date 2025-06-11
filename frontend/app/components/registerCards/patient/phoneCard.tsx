@@ -1,13 +1,13 @@
 import { MoveRight } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import RegisterInput from "./components/registerInput";
+import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
+import RegisterInput from "../components/registerInput";
 
-export default function AgeCard({ pageNumber }: { pageNumber: number }) {
+export default function PhoneCard({ pageNumber }: { pageNumber: number }) {
   return (
     <Card className="w-xl max-w-screen border-none pl-8 pr-4">
       <CardHeader className="relative">
         <CardTitle className="font-medium text-xl sm:text-2xl">
-          Wann hast du Geburtstag?
+          Wie lautet deine Telefonnummer?
         </CardTitle>
         <div className="absolute left-0 top-0 translate-y-1 sm:translate-y-1.5 -translate-x-4 flex items-center space-x-1">
           <p className="text-sm text-emerald-400">{pageNumber}</p>
@@ -16,9 +16,10 @@ export default function AgeCard({ pageNumber }: { pageNumber: number }) {
       </CardHeader>
       <CardContent className="grid gap-10">
         <RegisterInput
-          label="Geburtsdatum"
-          placeholder="01.01.2000"
-          type="date"
+          optional
+          label="Telefonnummer"
+          placeholder="+00 123456789"
+          type="tel"
         />
       </CardContent>
     </Card>

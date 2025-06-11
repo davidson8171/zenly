@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { Textarea } from "@/components/ui/textarea";
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Mail } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard/therapist/help")({
   component: DashboardTherapistHelp,
@@ -55,7 +55,10 @@ function DashboardTherapistHelp() {
             </div>
           </CardContent>
           <CardFooter className="flex justify-end mt-8 max-sm:!px-2">
-            <Button>Senden</Button>
+            <Button>
+              <Mail className="!w-4 !h-4" />
+              Senden
+            </Button>
           </CardFooter>
         </Card>
       </div>

@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import InputWithLabel from "@/components/ui/inputWithLabel";
 import { Label } from "@/components/ui/label";
 import { createFileRoute } from "@tanstack/react-router";
-import { Eye, EyeOff } from "lucide-react";
+import { ArrowUpRight, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 export const Route = createFileRoute("/login")({
   component: Login,
@@ -70,7 +70,9 @@ function Login() {
             </div>
           </CardContent>
           <CardFooter className="flex justify-end mt-8">
-            <Button>Anmelden</Button>
+            <Button>
+              Anmelden <ArrowUpRight className="!w-4 !h-4" />
+            </Button>
           </CardFooter>
         </Card>
       </div>

@@ -1,19 +1,13 @@
 import { MoveRight } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import RegisterInput from "./components/registerInput";
+import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
+import RegisterInputTextBox from "../components/registerInputTextBox";
 
-export default function NameCard({
-  pageNumber,
-  showTitle,
-}: {
-  pageNumber: number;
-  showTitle?: boolean;
-}) {
+export default function WhatHelpCard({ pageNumber }: { pageNumber: number }) {
   return (
     <Card className="w-xl max-w-screen border-none pl-8 pr-4">
       <CardHeader className="relative">
         <CardTitle className="font-medium text-xl sm:text-2xl">
-          Wie heißt du?
+          Wobei benötigst du Hilfe oder Unterstützung?
         </CardTitle>
         <div className="absolute left-0 top-0 translate-y-1 sm:translate-y-1.5 -translate-x-4 flex items-center space-x-1">
           <p className="text-sm text-emerald-400">{pageNumber}</p>
@@ -21,11 +15,7 @@ export default function NameCard({
         </div>
       </CardHeader>
       <CardContent className="grid gap-10">
-        {showTitle && (
-          <RegisterInput label="Titel" placeholder="Dr." type="text" optional />
-        )}
-        <RegisterInput label="Vorname" placeholder="Max" type="text" />
-        <RegisterInput label="Nachname" placeholder="Mustermann" type="text" />
+        <RegisterInputTextBox label="Thema" placeholder="Depressionen" />
       </CardContent>
     </Card>
   );
