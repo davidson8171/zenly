@@ -21,7 +21,7 @@ export default function InsuranceNumberCard({
       <CardContent className="grid gap-10">
         <RegisterInput
           label="Versichertennummer"
-          placeholder="1234567890"
+          placeholder="123456789"
           type="text"
         />
       </CardContent>

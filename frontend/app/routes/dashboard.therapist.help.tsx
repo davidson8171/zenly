@@ -35,8 +35,8 @@ function DashboardTherapistHelp() {
           <CardHeader className="max-sm:!px-2">
             <CardTitle className="text-lg">Kontakt</CardTitle>
             <CardDescription>
-              Schreibe uns eine Nachricht, wenn du Hilfe benötigst, einen
-              Verbesserungsvorschlag oder Fragen hast.
+              Schreiben Sie uns eine Nachricht, wenn Sie Hilfe benötigen, einen
+              Verbesserungsvorschlag oder Fragen haben.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-8 mt-4 max-sm:!px-2">
@@ -49,7 +49,7 @@ function DashboardTherapistHelp() {
               <Label className="text-md leading-none">Nachricht</Label>
               <Textarea
                 className="border-none px-0 mt-1 max-h-96 !placeholder-gray-500/25 !text-base peer"
-                placeholder="Deine Nachricht..."
+                placeholder="Ihre Nachricht..."
               />
               <div className="h-0.5 w-full mt-0.5 rounded-4xl bg-gray-500/25 peer-focus:bg-gradient-to-br from-teal-400 to-green-400 transition-all duration-300" />
             </div>

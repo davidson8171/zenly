@@ -19,12 +19,12 @@ export default function LanguageCard({ pageNumber }: { pageNumber: number }) {
       </CardHeader>
       <CardContent className="grid gap-2 w-fit">
         <RegisterButton
-          label="deutsch"
+          label="Deutsch"
           selected={language}
           setSelected={setLanguage}
         />
         <RegisterButton
-          label="englisch"
+          label="Englisch"
           selected={language}
           setSelected={setLanguage}
         />

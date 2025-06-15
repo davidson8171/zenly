@@ -86,22 +86,22 @@ function RegisterPatient() {
                 <DurationCard pageNumber={5} />
               </CarouselItem>
               <CarouselItem>
-                <VideoCard pageNumber={6} />
+                <FormerTherapyCard pageNumber={6} />
               </CarouselItem>
               <CarouselItem>
-                <LanguageCard pageNumber={7} />
+                <DiagnoseCard pageNumber={7} />
               </CarouselItem>
               <CarouselItem>
-                <FormerTherapyCard pageNumber={8} />
+                <MedicationCard pageNumber={8} />
               </CarouselItem>
               <CarouselItem>
-                <MedicationCard pageNumber={9} />
+                <SuicideCard pageNumber={9} />
               </CarouselItem>
               <CarouselItem>
-                <DiagnoseCard pageNumber={10} />
+                <LanguageCard pageNumber={10} />
               </CarouselItem>
               <CarouselItem>
-                <SuicideCard pageNumber={11} />
+                <VideoCard pageNumber={11} />
               </CarouselItem>
               <CarouselItem>
                 <InsuranceTypeCard pageNumber={12} />
