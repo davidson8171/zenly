@@ -47,7 +47,7 @@ export default function InsuranceTypeCard({
         </div>
         <RegisterInput
           label="Versicherungsname"
-          placeholder="ÖGK"
+          placeholder="GKV"
           type="text"
         />
       </CardContent>

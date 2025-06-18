@@ -10,7 +10,14 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { ChevronsUpDown, LifeBuoy, List, LogOut, User } from "lucide-react";
+import {
+  ChevronsUpDown,
+  History,
+  LifeBuoy,
+  List,
+  LogOut,
+  User,
+} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
   DropdownMenu,
@@ -28,6 +35,11 @@ const data = {
       name: "Warteliste",
       to: "/dashboard/therapist/queue",
       icon: List,
+    },
+    {
+      name: "Verlauf",
+      to: "/dashboard/therapist/history",
+      icon: History,
     },
     {
       name: "Profil",
@@ -146,15 +158,15 @@ export default function TherapistSidebar() {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className="rounded-lg !shadow-none bg-red-500 p-0 !border-none hover:bg-red-400"
+                className="rounded-lg !shadow-none p-0 !border-none bg-secondary hover:bg-secondary/80"
                 side={isMobile ? "bottom" : "right"}
                 align="end"
                 sideOffset={6}
               >
                 <DropdownMenuGroup>
                   <DropdownMenuItem className="focus:bg-transparent group px-3 py-2.5">
-                    <LogOut className="!h-3.5 !w-3.5 text-white" />
-                    <span className="text-white">Abmelden</span>
+                    <LogOut className="!h-3.5 !w-3.5 text-secondary-foreground" />
+                    <span className="text-secondary-foreground">Abmelden</span>
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>

@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Mail, Save } from "lucide-react";
 import InputWithLabel from "@/components/ui/inputWithLabel";
 export const Route = createFileRoute("/reset-password")({
   component: ResetPassword,
@@ -48,7 +48,9 @@ function ResetPassword() {
               />
             </CardContent>
             <CardFooter className="flex justify-end mt-8">
-              <Button>Anfordern</Button>
+              <Button>
+                <Mail className="!h-4 !w-4" /> Anfordern
+              </Button>
             </CardFooter>
           </Card>
         ) : (
@@ -84,7 +86,9 @@ function ResetPassword() {
               </div>
             </CardContent>
             <CardFooter className="flex justify-end mt-8">
-              <Button>Speichern</Button>
+              <Button>
+                <Save className="!h-4 !w-4" /> Speichern
+              </Button>
             </CardFooter>
           </Card>
         )}
