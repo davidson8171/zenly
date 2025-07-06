@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <div className="sticky top-4 z-50 w-full">
       <div className="flex justify-center items-center ">
-        <div className="w-full md:w-10/12 lg:w-8/12 2xl:w-6/12 flex justify-between items-center p-2 sm:p-4 bg-white/30 before:backdrop-blur-xs  before:absolute before:inset-0 before:-z-10 rounded-xl max-sm:mx-2">
+        <div className="w-full md:w-10/12 lg:w-8/12 2xl:w-6/12 flex justify-between items-center p-2 sm:p-4 bg-white/30 before:backdrop-blur-xs before:absolute before:inset-0 before:-z-10 rounded-xl max-sm:mx-2">
           <Logo size="sm" />
           <div className="flex items-center space-x-0">
             <NavigationMenu

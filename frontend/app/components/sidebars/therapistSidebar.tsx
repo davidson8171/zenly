@@ -14,8 +14,8 @@ import {
   ChevronsUpDown,
   History,
   LifeBuoy,
-  List,
   LogOut,
+  Rows3,
   User,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
@@ -34,7 +34,7 @@ const data = {
     {
       name: "Warteliste",
       to: "/dashboard/therapist/queue",
-      icon: List,
+      icon: Rows3,
     },
     {
       name: "Verlauf",
