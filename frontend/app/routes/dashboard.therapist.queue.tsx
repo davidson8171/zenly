@@ -31,7 +31,7 @@ function DashboardTherapistQueue() {
         </div>
       )}
       <div className="w-full flex justify-center mt-4">
-        <Card className="w-full max-w-2xl md:w-2xl border-none">
+        <Card className="w-full max-w-2xl border-none shadow-none">
           <CardHeader className="max-sm:!px-2">
             <CardTitle className="text-lg">Warteliste</CardTitle>
             <CardDescription>
@@ -42,13 +42,13 @@ function DashboardTherapistQueue() {
           </CardHeader>
           <CardContent className="grid gap-4 max-sm:!px-2 mb-8 mt-4">
             <div className="flex justify-between gap-4">
-              <Button variant="secondary">
-                <X className="!h-4 !w-4" />
-                Ablehnen
-              </Button>
               <Button>
                 <Check className="!h-4 !w-4" />
                 Annehmen
+              </Button>
+              <Button variant="secondary">
+                <X className="!h-4 !w-4" />
+                Ablehnen
               </Button>
             </div>
             <PatientInfoPerson

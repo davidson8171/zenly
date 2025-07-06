@@ -8,7 +8,7 @@ export default function InfoWithTitle({
   return (
     <div className="flex flex-col gap-0.5">
       <p className="text-sm text-muted-foreground">{title}</p>
-      <p className="text-md leading-snug">{info}</p>
+      <p className="text-md leading-snug break-words">{info}</p>
     </div>
   );
 }

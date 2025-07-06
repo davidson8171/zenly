@@ -26,7 +26,7 @@ function Login() {
       <Navbar />
       <div className="h-full w-full flex flex-col items-center">
         <div className="h-1/6" />
-        <Card className="w-full max-w-96 sm:w-96 border-none">
+        <Card className="w-full max-w-96 sm:w-96 max-sm:border-none">
           <CardHeader>
             <CardTitle className="text-lg">Anmelden</CardTitle>
             <CardDescription>

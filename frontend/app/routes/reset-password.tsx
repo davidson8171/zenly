@@ -33,7 +33,7 @@ function ResetPassword() {
       <div className="h-full w-full flex flex-col items-center">
         <div className="h-1/6" />
         {token === "" ? (
-          <Card className="w-full max-w-96 sm:w-96 border-none">
+          <Card className="w-full max-w-96 sm:w-96 max-sm:border-none">
             <CardHeader>
               <CardTitle className="text-lg">Passwort zurücksetzen</CardTitle>
               <CardDescription>
@@ -54,7 +54,7 @@ function ResetPassword() {
             </CardFooter>
           </Card>
         ) : (
-          <Card className="w-full max-w-96 sm:w-96 border-none">
+          <Card className="w-full max-w-96 sm:w-96 max-sm:border-none">
             <CardHeader>
               <CardTitle className="text-lg">Passwort ändern</CardTitle>
               <CardDescription>

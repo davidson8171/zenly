@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -37,6 +38,31 @@ export function DataTable<TData, TValue>({
       },
     },
   });
+
+  const handleBreakpointChange1280 = (e: MediaQueryListEvent) => {
+    if (e.matches) {
+      table.getColumn("phone")?.toggleVisibility(true);
+      table.getColumn("email")?.toggleVisibility(true);
+    } else {
+      table.getColumn("phone")?.toggleVisibility(false);
+      table.getColumn("email")?.toggleVisibility(false);
+    }
+  };
+
+  useEffect(() => {
+    const mdBreakpoint1280 = window.matchMedia("(min-width: 1280px)");
+    mdBreakpoint1280.addEventListener("change", handleBreakpointChange1280);
+    handleBreakpointChange1280(
+      mdBreakpoint1280 as unknown as MediaQueryListEvent
+    );
+
+    return () => {
+      mdBreakpoint1280.removeEventListener(
+        "change",
+        handleBreakpointChange1280
+      );
+    };
+  }, []);
 
   return (
     <div>
@@ -62,21 +88,25 @@ export function DataTable<TData, TValue>({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
+              table.getRowModel().rows.map((row) => {
+                return (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => {
+                      return (
+                        <TableCell key={cell.id}>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })
             ) : (
               <TableRow>
                 <TableCell

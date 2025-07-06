@@ -21,8 +21,8 @@ export const Route = createFileRoute("/dashboard/therapist/history")({
 const data: TherapistHistory[] = [
   {
     id: "1",
-    name: "John Doe",
-    email: "john.doe@example.com",
+    name: "John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn Doe",
+    email: "john.doe@example.comjohn.doe@example.com",
     phone: "+49 123456789",
     date: new Date(),
     status: "accepted",
@@ -30,8 +30,8 @@ const data: TherapistHistory[] = [
   {
     id: "2",
     name: "Jane Doe",
-    email: "jane.doe@example.com",
-    phone: "+49 123456789",
+    email: "-",
+    phone: "-",
     date: new Date(),
     status: "rejected",
   },
